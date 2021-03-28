@@ -3,20 +3,34 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  window.alert(message);
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-  let questionOne = prompt("How many characters would you like your password to contain");
+  alert("Welcome");
 }
 
-// Array of questions for user
-var questions = [
-  { q: "How many characters would you like your password to contain", a: "8-128" },
-  { q: "Would you like to include special characters?", a: "t" },
-  { q: "There are 42 ounces in a pound.", a: "f" },
-  { q: "The Declaration of Independence was created in 1745.", a: "f" },
-  { q: "Bananas are vegetables.", a: "f" }
-];
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+<button generate = "writePassword(length)" ></button>
+
+
+
+function writePassword(length) {
+  var password = '';
+  var charactersLower = 'abcdefghijklmnopqrstuvwxyz';
+  var charactersUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var charactersNumbers = '0123456789';
+  var charactersSpecials = '-*/\][}{.,/?!@#$%^&*;:';
+  var passwordLength = prompt("8-128 characters")
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+
+//Create an array of lowercase letters
+//Create ana array of uppder case letters
+//create an array of numbers
+//create and array of special characters
+//
