@@ -13,7 +13,6 @@ function writePassword() {
 }
 
 function writePassword() {
-  console.log('hello');
   var password = generatePassword();
 }
 
@@ -22,12 +21,28 @@ function generatePassword() {
   var result = [];
   var possibleCharacters = [];
   var guarenteedCharacters = [];
-
+  
+  do{
   if (options.specials){
     possibleCharacters = possibleCharacters.concat(charactersSpecials);
-    guarenteedCharacters.push(getrandom(charactersSpecials))
+    guarenteedCharacters.push(getRandom(charactersSpecials))
   }
-
+  if (options.uppers){
+    possibleCharacters = possibleCharacters.concat(charactersUpper);
+    guarenteedCharacters.push(getRandom(charactersUpper))
+  }
+  if (options.lowers){
+    possibleCharacters = possibleCharacters.concat(charactersLower);
+    guarenteedCharacters.push(getRandom(charactersLower))
+  }
+  if (options.numericals){
+    possibleCharacters = possibleCharacters.concat(charactersNumbers);
+    guarenteedCharacters.push(getRandom(charactersNumbers))
+  }
+console.log(guarenteedCharacters.length)
+  }
+while(guarenteedCharacters.length < options.length);
+  document.getElementById("password").innerText = guarenteedCharacters.join("");
 };
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length)
@@ -38,7 +53,6 @@ function getRandom(arr) {
 
 function getOptions() {
   var length = parseInt(prompt("How many characters would you like your password to contain?"));
-  console.log(length)
   if (isNaN(length)) {
     alert("Input must be a number between 8 and 128.")
     return;
@@ -69,8 +83,9 @@ var passwordOptions = {
 }
 return passwordOptions;
 }
-
+console.log(writePassword)
 generateBtn.addEventListener("click", writePassword);
+
 
 // if(isNaN(num1)){
 //   document.write(num1 + " is not a number <br/>");
